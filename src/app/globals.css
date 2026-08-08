@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --base-font-size: 22px;
+}
+
+html {
+  font-size: var(--base-font-size);
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-cream text-ink font-body;
+}
+
+h1, h2, h3, .font-display {
+  font-family: var(--font-kanit), sans-serif;
+}
+
+/* Always show a strong, visible focus ring — essential for users who
+   navigate with a keyboard, a switch device, or unsteady hands. */
+:focus-visible {
+  outline: 3px solid #D6A526;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Respect "reduce motion" operating-system preference. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Minimum comfortable tap target for every button/link, per universal
+   design guidance for elderly users. */
+button, a, input[type="button"], input[type="submit"] {
+  min-height: 44px;
+}
