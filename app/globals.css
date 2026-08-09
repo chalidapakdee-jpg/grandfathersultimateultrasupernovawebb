@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Driven by the Settings page (small / medium / large / extra-large) */
+  --font-scale: 1;
+}
+
+html {
+  /* Base is already generous (18px) for older eyes; Settings multiplies this */
+  font-size: calc(18px * var(--font-scale));
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  @apply bg-cream text-ink font-body;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  @apply font-display;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Strong, visible focus ring everywhere -- important for accessibility */
+:focus-visible {
+  outline: 3px solid theme("colors.azuki.DEFAULT");
+  outline-offset: 3px;
+  border-radius: 0.5rem;
+}
+
+/* Large, thumb-friendly minimum touch target */
+.tap-target {
+  min-height: 3rem;
+  min-width: 3rem;
+}
+
+/* Simple utility for the mirrored self-view camera */
+.mirror {
+  transform: scaleX(-1);
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
